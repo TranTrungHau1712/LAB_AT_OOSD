@@ -1,4 +1,4 @@
-﻿namespace QuanLyThuMuc.Forms
+﻿namespace QuanLyThuVien.Forms
 {
     partial class FrmMain
     {

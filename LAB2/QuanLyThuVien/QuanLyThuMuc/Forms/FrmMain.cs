@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyThuMuc.Forms
+namespace QuanLyThuVien.Forms
 {
     public partial class FrmMain : Form
     {
@@ -24,6 +24,10 @@ namespace QuanLyThuMuc.Forms
 
         private void btnDanhMuc_Click(object sender, EventArgs e)
         {
+            using (FrmDanhMuc f = new FrmDanhMuc())
+            {
+                f.ShowDialog();
+            }
 
         }
 
