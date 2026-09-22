@@ -33,21 +33,35 @@ namespace QuanLyThuVien.Forms
 
         private void btnSach_Click(object sender, EventArgs e)
         {
+            using (FrmSach f = new FrmSach())
+            { f.ShowDialog(); }
 
         }
 
         private void btnDocGia_Click(object sender, EventArgs e)
         {
+            using (FrmDocGia f = new FrmDocGia())
+            {
+                f.ShowDialog();
+            }
 
         }
 
         private void btnMuonTra_Click(object sender, EventArgs e)
         {
+            using (FrmMuonTra f = new FrmMuonTra())
+            {
+                f.ShowDialog();
+            }
 
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            using (FrmThongKe f = new FrmThongKe())
+            {
+                f.ShowDialog();
+            }
 
         }
 
