@@ -1,0 +1,22 @@
+HƯỚNG DẪN CHẠY - QUẢN LÝ CHO THUÊ VĂN PHÒNG CAO ỐC (C# WinForms + SQL Server)
+
+1. Tạo CSDL: mở SSMS, mở file QuanLyVanPhong.sql, bấm Execute (tạo DB, bảng, hàm, thủ tục, dữ liệu mẫu).
+   Cần SQL Server 2017 trở lên (dùng STRING_AGG).
+2. Mở QuanLyVanPhong.sln bằng Visual Studio 2022 (.NET Framework 4.7.2).
+3. Sửa App.config nếu cần: Data Source=.\SQLEXPRESS  (hoặc (localdb)\MSSQLLocalDB, hoặc tên máy).
+4. Build (Ctrl+Shift+B) rồi chạy (F5). Đăng nhập: admin / admin123  (hoặc letan / 123456).
+
+Kiến trúc phân lớp (cùng một project, chia theo thư mục / namespace):
+  Presentation/  giao diện WinForms, dựng hoàn toàn bằng code (không dùng Designer)
+  BLL/           nghiệp vụ, kiểm tra quy tắc (6 tháng, gia hạn <= 1/2, công nợ...)
+  DAL/           kết nối và truy vấn SQL Server (Db.cs, các lớp *Dal)
+  Common/        Session, BusinessException, tiện ích
+
+Dữ liệu mẫu để thử nhanh:
+  HD-2026-002: không công nợ  -> gia hạn được (tối đa 6 tháng)
+  HD-2026-003: quá hạn tháng 7, 8 -> không gia hạn được
+  HD-2026-001: còn hóa đơn dịch vụ T10 và tiền phạt chưa nộp -> không gia hạn được
+
+Lỗi thường gặp:
+  - "Không kết nối được SQL Server": sai Data Source trong App.config hoặc chưa chạy file .sql.
+  - Thiếu System.Windows.Forms.DataVisualization: dự án đã tham chiếu sẵn (có trong .NET Framework).
